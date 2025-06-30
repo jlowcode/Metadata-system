@@ -46,7 +46,7 @@ class PlgSystemMetadata extends CMSPlugin
      * 
      * @return 		void
     */
-    public function onBeforeCompileHead() 
+    public function onAfterDisconnect()
     {
         $image = $this->params->get("image_site");
         $image = HTMLHelper::_("image", $image, $image, null, false, 1);
@@ -74,12 +74,12 @@ class PlgSystemMetadata extends CMSPlugin
      */
     private function setOgTags($title, $description, $image)
     {
-        Factory::getApplication()->getDocument()->setMetaData('og:title', $title);
-        Factory::getApplication()->getDocument()->setMetaData('og:description', $description);
-        Factory::getApplication()->getDocument()->setMetaData('og:type', 'website');
+        Factory::getApplication()->getDocument()->setMetaData('og:title', $title, 'property');
+        Factory::getApplication()->getDocument()->setMetaData('og:description', $description, 'property');
+        Factory::getApplication()->getDocument()->setMetaData('og:type', 'website', 'property');
 
         if ($image) {
-            Factory::getApplication()->getDocument()->setMetaData('og:image', $image);
+            Factory::getApplication()->getDocument()->setMetaData('og:image', $image, 'property');
         }
     }
 
@@ -94,12 +94,12 @@ class PlgSystemMetadata extends CMSPlugin
      */
     private function setTwitterTags($title, $description, $image)
     {
-        Factory::getApplication()->getDocument()->setMetaData('twitter:card', 'summary_large_image');
-        Factory::getApplication()->getDocument()->setMetaData('twitter:title', $title);
-        Factory::getApplication()->getDocument()->setMetaData('twitter:description', $description);
+        Factory::getApplication()->getDocument()->setMetaData('twitter:card', 'summary_large_image', 'property');
+        Factory::getApplication()->getDocument()->setMetaData('twitter:title', $title, 'property');
+        Factory::getApplication()->getDocument()->setMetaData('twitter:description', $description, 'property');
 
         if ($image) {
-            Factory::getApplication()->getDocument()->setMetaData('twitter:image', $image);
+            Factory::getApplication()->getDocument()->setMetaData('twitter:image', $image, 'property');
         }
     }
 
@@ -114,11 +114,11 @@ class PlgSystemMetadata extends CMSPlugin
      */
     private function setTags($title, $description, $image)
     {
-        Factory::getApplication()->getDocument()->setMetaData('title', $title);
-        Factory::getApplication()->getDocument()->setMetaData('description', $description);  
+        Factory::getApplication()->getDocument()->setMetaData('title', $title, 'property');
+        Factory::getApplication()->getDocument()->setMetaData('description', $description, 'property');  
 
         if($image) {
-            Factory::getApplication()->getDocument()->setMetaData('image', $image);
+            Factory::getApplication()->getDocument()->setMetaData('image', $image, 'property');
         }
     }
 }
