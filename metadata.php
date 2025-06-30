@@ -16,7 +16,6 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\HTML\HTMLHelper;
 
-
 /**
  * 	Plugin that displays metadata when your URL is shared
  * 
@@ -25,7 +24,6 @@ use Joomla\CMS\HTML\HTMLHelper;
  */
 class PlgSystemMetadata extends CMSPlugin 
 {
-
     public function __construct(&$subject, $config = array()) 
     {
         parent::__construct($subject, $config);
@@ -59,11 +57,9 @@ class PlgSystemMetadata extends CMSPlugin
         $description = $this->params->get("description");
         $description = strip_tags($description);
         
-
         $this->setOgTags($title, $description, $image);
         $this->setTwitterTags($title, $description, $image);
         $this->setTags($title, $description, $image);
-
     }
     
     /**
