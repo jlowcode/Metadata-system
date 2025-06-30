@@ -50,6 +50,7 @@ class PlgSystemMetadata extends CMSPlugin
     {
         $image = $this->params->get("image_site");
         $image = HTMLHelper::_("image", $image, $image, null, false, 1);
+        $image = Uri::root() . ltrim(explode('#', $image)[0], '/');
 
         $title = $this->params->get("title");
         $title = strip_tags($title);
@@ -73,8 +74,8 @@ class PlgSystemMetadata extends CMSPlugin
      */
     private function setOgTags($title, $description, $image)
     {
-        Factory::getApplication()->getDocument()->setMetaData('og:title', strip_tags($title));
-        Factory::getApplication()->getDocument()->setMetaData('og:description', strip_tags($description));
+        Factory::getApplication()->getDocument()->setMetaData('og:title', $title);
+        Factory::getApplication()->getDocument()->setMetaData('og:description', $description);
         Factory::getApplication()->getDocument()->setMetaData('og:type', 'website');
 
         if ($image) {
@@ -94,8 +95,8 @@ class PlgSystemMetadata extends CMSPlugin
     private function setTwitterTags($title, $description, $image)
     {
         Factory::getApplication()->getDocument()->setMetaData('twitter:card', 'summary_large_image');
-        Factory::getApplication()->getDocument()->setMetaData('twitter:title', strip_tags($title));
-        Factory::getApplication()->getDocument()->setMetaData('twitter:description', strip_tags($description));
+        Factory::getApplication()->getDocument()->setMetaData('twitter:title', $title);
+        Factory::getApplication()->getDocument()->setMetaData('twitter:description', $description);
 
         if ($image) {
             Factory::getApplication()->getDocument()->setMetaData('twitter:image', $image);
@@ -113,8 +114,8 @@ class PlgSystemMetadata extends CMSPlugin
      */
     private function setTags($title, $description, $image)
     {
-        Factory::getApplication()->getDocument()->setMetaData('title', strip_tags($title));
-        Factory::getApplication()->getDocument()->setMetaData('description', strip_tags($description));  
+        Factory::getApplication()->getDocument()->setMetaData('title', $title);
+        Factory::getApplication()->getDocument()->setMetaData('description', $description);  
 
         if($image) {
             Factory::getApplication()->getDocument()->setMetaData('image', $image);
