@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<extension group="system" method="upgrade" type="plugin" version="4">
+	<name>PLG_SYSTEM_METADATA</name>
+	<author>Jlowcode Organization</author>
+	<creationDate>June 2025</creationDate>
+	<copyright>Copyright (C) 2025 Jlowcode Org - All rights reserved.</copyright>
+	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+	<authorEmail>contact@jlowcode.org</authorEmail>
+	<authorUrl>www.jlowcode.org</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_SYSTEM_METADATA_DESCRIPTION</description>
+	<files>
+		<filename plugin="metadata">metadata.php</filename>
+		<filename>index.html</filename>
+		<filename>metadata.js</filename>
+		<filename>metadata-min.js</filename>
+		<folder>language</folder>
+		<folder>forms</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="title"
+				       type="text"
+					   description="PLG_SYSTEM_METADATA_TITLE_DESC"
+					   label="PLG_SYSTEM_METADATA_TITLE_LABEL"
+				    />
+
+					<field name="description"
+				       type="textarea"
+					   description="PLG_SYSTEM_METADATA_DESCRIPTION_DESC"
+					   label="PLG_SYSTEM_METADATA_DESCRIPTION_LABEL"
+				    />
+
+				<field name="image_site"
+				       type="media"
+					   description="PLG_SYSTEM_METADATA_IMAGE_DESC"
+					   label="PLG_SYSTEM_METADATA_IMAGE_LABEL"
+				    />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
