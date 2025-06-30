@@ -120,5 +120,4 @@ class PlgSystemMetadata extends CMSPlugin
             Factory::getApplication()->getDocument()->setMetaData('image', $image);
         }
     }
-
 }
