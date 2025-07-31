@@ -15,6 +15,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Application\ConsoleApplication;
 
 /**
  * 	Plugin that displays metadata when your URL is shared
@@ -48,6 +49,12 @@ class PlgSystemMetadata extends CMSPlugin
     */
     public function onContentPrepare()
     {
+        $app = Factory::getApplication();
+
+        if ($app instanceof ConsoleApplication) {
+            return;
+        }
+
         $image = $this->params->get("image_site");
         $image = HTMLHelper::_("image", $image, $image, null, false, 1);
         $image = Uri::root() . ltrim(explode('#', $image)[0], '/');
